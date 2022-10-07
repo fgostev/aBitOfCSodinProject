@@ -52,6 +52,10 @@ console.log(factorial(5)); // 5 * 4 * 3 * 2 * 1 === 120
 
 // Exercise 5:
 
+// Write a function called productOfArray which takes in an array of numbers and returns the product of them all
+
+
+
 function productOfArray(array){
     if(array.length === 0) return 1;
     return array.shift() * productOfArray(array) 
@@ -62,3 +66,42 @@ var six = productOfArray([1,2,3]) // 6
 var sixty = productOfArray([1,2,3,10]) // 60
 
 console.log(six, sixty);
+
+
+// Question 6: Search JS object
+// Write a function called contains that searches for a value in a nested object. It returns true if the object contains that value.
+
+
+var nestedObject = {
+    data: {
+        info: {
+            stuff: {
+                thing: {
+                    moreStuff: {
+                        magicNumber: 44,
+                        something: 'foo2'
+                    }
+                }
+            }
+        }
+    }
+}
+
+function contains(object, value){
+    for(let key in object){
+        if(typeof object[key] === null){
+        // nul in typeoff null returns "object"
+			return contains(object[key], value);
+		}
+        if(object[key] === value){
+            return true;
+        }
+    }
+    return false
+}
+
+let hasIt = contains(nestedObject, 44); // true
+let doesntHaveIt = contains(nestedObject, "foo"); // false
+
+console.log(hasIt);
+console.log(doesntHaveIt);
