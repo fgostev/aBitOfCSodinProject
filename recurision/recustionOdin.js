@@ -21,16 +21,8 @@ console.log(fibs(8))
 // recursive version
 
 function fibRec(num){
-    let fibonacci = [];
-    let a = 0
-    let b = 1;
-    fibonacci.push(a, b);
-    if (num <= 1) return fibonacci; 
-    b = a;
-    // fibonacci.push(b)
-    fibonacci.push(a + b);
-    fibRec(num - 1 );
-
+if(num < 2) return num;
+else return (fibRec(num-1) + fibRec(num-2))
     // return fibRec(num - 1) + fibRec(num - 2);
 }
 
